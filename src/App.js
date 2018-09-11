@@ -5,8 +5,8 @@ const rand = () => Math.floor(Math.random() * 400 - 200);
 
 class App extends Component {
   state = {
-    ballX: 100,
-    ballY: 400,
+    ballX: 500,
+    ballY: 500,
     hits: 0
   };
 
@@ -30,10 +30,20 @@ class App extends Component {
     }));
   };
 
+  handleFetch = () => {
+    this.setState(state => ({
+      ballX: 500,
+      ballY: 500
+    }));
+  };
+
   render() {
     return (
       <div className="canvas">
         <Counter hits={this.state.hits} />
+        <button className="fetch" onClick={this.handleFetch}>
+          Fetch the ball
+        </button>
         <Ball
           x={this.state.ballX}
           y={this.state.ballY}
